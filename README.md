@@ -8,7 +8,7 @@ You will need either a locally installed `python3` or a `docker`.
 
 ## Launch Locally
 
-For local launch, set all dependencies with `pip`. Make sure you are using `python` version `3`.
+For local launch, set all dependencies with `pip`. Make sure you are using `python` version `3`. Copy the `.env.dist` file to `.env`.
 
 To avoid clogging your system, use venv.
 
@@ -21,6 +21,9 @@ source .venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 
+# Settings, edit .env if need
+cp .env.dist .env
+
 # run bot
 python main.py
 ```
@@ -31,5 +34,5 @@ First you need to build the image. Then, using this image, start the container. 
 
 ```bash
 docker build -t username/botname .
-docker run --rm -t username/botnane
+docker run -e TELEGRAM_TOKEN=<your-bot-token> --rm -t username/botnane
 ```
